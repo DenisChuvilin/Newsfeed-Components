@@ -1,13 +1,6 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
-let menuItems = [
-  'Students',
-  'Faculty',
-  "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
-];
+let menuItems = ['Students', 'Faculty', "What's New", 'Tech Trends', 'Music', 'Log Out'];
 
 /* 
 
@@ -20,7 +13,40 @@ let menuItems = [
   </div>
 
   The function takes an array as its only argument.
+  */
 
+//create fucntion
+function menuCreator(menuItems) {
+  //create elements
+  const BurgM = document.createElement('div');
+  const BurgUL = document.createElement('ul');
+  // create classes
+  BurgM.classList.add('menu');
+  //append elements
+  BurgM.append(BurgUL);
+
+  menuItems.forEach(element => {
+    let li = document.createElement('li');
+    let link = document.createElement('a');
+
+    link.href = '#';
+    link.textContent = element;
+    li.append(link);
+    BurgUL.append(li);
+  });
+
+  return BurgM;
+}
+let header = document.querySelector('.header');
+header.prepend(menuCreator(menuItems));
+let menu = document.querySelector('.menu');
+header.addEventListener('click', e => {
+  if (e.target.classList == 'menu-button') {
+    menu.classList.toggle('menu--open');
+  }
+});
+
+/*
   Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
   Add those items to the <ul>
 
