@@ -113,7 +113,7 @@ const data = [
 
 */
 
-function createNewsFeed(given.title, given.date, given.firstParagraph, given.secondParagraph, given.thirdParagraph){
+function createNewsFeed(given){
   //create elements
 const article = document.createElement('div');
 const title = document.createElement('h2');
@@ -131,4 +131,14 @@ article.classList.add('article');
 date.classList.add('date');
 span.classList.add('expandButton');
 
+// add textContent
+title.textContent = given.title;
+date.textContent = given.date;
+p1.textContent = given.firstParagraph;
+p2.textContent = given.secondParagraph;
+p3.textContent = given.thirdParagraph;
+
+// return article
+return article
 }
+
