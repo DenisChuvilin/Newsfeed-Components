@@ -34,30 +34,34 @@ let menuItems = [
   
 */
 // function compomemnt creator
-function menuCreator(input){
+function menuCreator(input) {
 
   // createing elements
   const menu = document.createElement('div');
   const ul = document.createElement('ul');
-const li = document.createElement('li')
   // append items
-menu.append(ul);
-//appending the li to ul
-menuItems.forEach(item => ul.append(item));
+  menu.append(ul);
+
+  //creating and appending the li to ul
+  menuItems.forEach(item => {
+    let li = document.createElement('li');
+    li.textContent = item;
+    ul.append(li);
+  });
+
   // add classes
   menu.classList.add('menu');
 
-  // add text content
-  li.textContent = input
-
-// return menu
-return menu;
+  // return menu
+  return menu;
 }
 
-//capturing menu
-const menu = document.querySelector('.menu-button')
-
+//capturing menu & header
+const header = document.querySelector('.header')
+const menuButton = document.querySelector('.menu-button')
 // add menu item to real menu
-menu.append(menuCreator())
+header.append(menuCreator())
 
 //add click event listener
+const addedMenu = document.querySelector('.menu')
+menuButton.addEventListener("click", () => { addedMenu.classList.toggle('menu--open') })
