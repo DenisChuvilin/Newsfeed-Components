@@ -113,6 +113,7 @@ const data = [
 
 */
 
+
 function createNewsFeed(given){
   //create elements
 const article = document.createElement('div');
@@ -137,8 +138,21 @@ date.textContent = given.date;
 p1.textContent = given.firstParagraph;
 p2.textContent = given.secondParagraph;
 p3.textContent = given.thirdParagraph;
+span.textContent = 'Read More'
+
+// add event listener to span
+span.addEventListener("click", () => {
+  article.classList.toggle('article-open')
+  // console.log('button clicked', event.target)
+})
 
 // return article
 return article
 }
 
+//append article to articles div
+const realArticle = document.querySelector('.articles');
+
+data.forEach(piece => {
+  realArticle.append(createNewsFeed(piece))
+})
