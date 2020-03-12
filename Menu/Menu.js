@@ -34,20 +34,30 @@ let menuItems = [
   
 */
 // function compomemnt creator
-function menuCreator(){
+function menuCreator(input){
 
   // createing elements
   const menu = document.createElement('div');
   const ul = document.createElement('ul');
-
+const li = document.createElement('li')
   // append items
-menu.append(ul)
-
+menu.append(ul);
+//appending the li to ul
+menuItems.forEach(item => ul.append(item));
   // add classes
   menu.classList.add('menu');
+
+  // add text content
+  li.textContent = input
 
 // return menu
 return menu;
 }
 
-menuItems.forEach(item => )
+//capturing menu
+const menu = document.querySelector('.menu-button')
+
+// add menu item to real menu
+menu.append(menuCreator())
+
+//add click event listener
